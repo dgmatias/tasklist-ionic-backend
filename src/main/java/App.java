@@ -13,7 +13,7 @@ public class App {
 		
 		Task task = new Task();
 		
-		task.setName("comer maça");
+		task.setName("almoçar");
 		taskDao.add(task);
 		
 		List<Task> list = taskDao.listDB();
