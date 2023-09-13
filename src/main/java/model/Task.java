@@ -4,7 +4,7 @@ public class Task {
 
 	private Integer id;
 	private String name;
-	private boolean status;
+	private Boolean status;
 	
 	public Integer getId() {
 		return id;
@@ -18,7 +18,7 @@ public class Task {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean isStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 	public void setStatus(boolean status) {

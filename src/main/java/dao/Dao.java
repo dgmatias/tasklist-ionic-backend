@@ -39,5 +39,15 @@ import java.sql.SQLException;
 		
 	}
 	
+	public static boolean closeConnection( ) {
+		try {
+			Dao.getConnection().close();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
 	
 }
