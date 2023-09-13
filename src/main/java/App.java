@@ -7,10 +7,17 @@ public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub		
-		TaskDao taskDao = new TaskDao();
-		List<Task> list = taskDao.listDB();
+
 		
-		list.forEach(task -> System.out.println(task.getName()));
+		TaskDao taskDao = new TaskDao();
+		
+		Task task = new Task();
+		
+		task.setName("comer maça");
+		taskDao.add(task);
+		
+		List<Task> list = taskDao.listDB();
+		list.forEach(result -> System.out.println(result.getName()));
 	}
 
 }

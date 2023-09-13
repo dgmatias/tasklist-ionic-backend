@@ -11,6 +11,33 @@ import model.Task;
 
 public class TaskDao {
 
+	public boolean add(Task task) {
+		
+		boolean result = true;
+		
+		Connection cnx = Dao.getConnection();
+		
+		String sql = "INSERT INTO tasks (name) VALUES (?)";
+		
+		PreparedStatement ps;
+		
+		try {
+			ps = cnx.prepareStatement(sql);
+			ps.setString(1, task.getName());
+			int i = ps.executeUpdate();			
+			
+			result = i > 0 ? true : false;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+	}
+	
+	
 	//Método list irá fazer uma querry de todo o banco de dados.
 	
 	public List<Task> listDB() {
