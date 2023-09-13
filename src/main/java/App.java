@@ -1,11 +1,10 @@
-package dao;
+import dao.Dao;
 
-public class app {
+public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Dao.getConnection();
-		System.out.println(Dao.getStatus());
 	}
 
 }
