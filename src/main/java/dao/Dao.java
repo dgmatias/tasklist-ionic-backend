@@ -42,6 +42,7 @@ import java.sql.SQLException;
 	public static boolean closeConnection( ) {
 		try {
 			Dao.getConnection().close();
+			System.out.println("Conexão fechada");
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
