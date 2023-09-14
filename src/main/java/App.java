@@ -12,15 +12,15 @@ public class App {
 		
 		Task task = new Task();
 		
-		//task.setName("ir ao mercado");
+		task.setName("chupar laranja");
 		
-		//askDao.add(task);
-		//taskDao.delete(3);
+		taskDao.add(task);
+		//taskDao.delete(7);
 		//taskDao.alter(task);
 		
 		
-		//List<Task> list = taskDao.listDB();
-		List<Task> list = taskDao.searchById(5);
+		List<Task> list = taskDao.listDB();
+		//List<Task> list = taskDao.searchById(5);
 		
 		list.forEach(result -> System.out.println(result.toString()));
 	}
