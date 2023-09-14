@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS tasklistdb;
+
+USE tasklistdb;
+
+CREATE TABLE tasks(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(40) NOT NULL,
+    status BOOLEAN DEFAULT FALSE
+);

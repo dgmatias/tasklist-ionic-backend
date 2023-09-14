@@ -2,6 +2,8 @@ package model;
 
 public class Task {
 
+	
+	
 	private Integer id;
 	private String name;
 	private Boolean status;
@@ -23,6 +25,11 @@ public class Task {
 	}
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+	
+	@Override
+	public String toString() {
+		return "Task [id=" + id + ", name=" + name + ", status=" + status + "]";
 	}
 	
 }
