@@ -11,7 +11,7 @@ import model.Task;
 
 public class TaskDao {
 
-	public boolean add(Task task) {
+	public boolean addDB(Task task) {
 		
 		boolean result = true;
 		
@@ -80,7 +80,7 @@ public class TaskDao {
 	
 	//Método que irá executar o comando DELETE no banco de dados
 	
-	public boolean delete(Integer id) {
+	public boolean deleteDB(Integer id) {
 		
 		boolean result = true;
 		
@@ -107,7 +107,7 @@ public class TaskDao {
 	
 	//Método que irá executar o comando alter table no banco de dados;
 	
-	public boolean alter(Task task) {
+	public boolean alterDB(Task task) {
 		
 		boolean result = true;
 		
@@ -138,7 +138,7 @@ public class TaskDao {
 	//Método que irá executar uma query com base em um id
 	
 	@SuppressWarnings("finally")
-	public List<Task> searchById(Integer id) {
+	public List<Task> searchByIdDB(Integer id) {
 		
 		Connection cnx = Dao.getConnection();
 		

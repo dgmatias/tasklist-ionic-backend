@@ -3,7 +3,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Task" %>
-<%@ page import="dao.TaskDao" %>
+<%@ page import="service.Service" %>
 
 <!DOCTYPE html>
 <html>
@@ -39,8 +39,8 @@
       <%
   
   		List<Task> list = new ArrayList<Task>();
-  		TaskDao taskDao = new TaskDao();
-  		list = taskDao.listDB();
+  		Service service = new Service();
+  		list = service.listTask();
   	
   		for(Task task : list) {
   
