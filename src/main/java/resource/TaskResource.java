@@ -3,6 +3,7 @@ package resource;
 import java.util.List;
 
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -62,7 +63,7 @@ public class TaskResource {
 		
 		if(result) {
 			
-			response = Response.status(Response.Status.CREATED).entity("Tarefa adicionada com sucesso").build();
+			response = Response.status(Response.Status.CREATED).entity("Tarefa 			adicionada com sucesso").build();
 			
 		} else {
 			response = Response.status(Response.Status.INTERNAL_SERVER_ERROR)
@@ -71,6 +72,29 @@ public class TaskResource {
 
 		}
 
+		return response;
+		
+	}
+	
+	
+	
+	@DELETE
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("task/{id}")
+	public Response delTask(@PathParam("id") Integer id) {
+		
+		Service service = new Service();
+		boolean result = service.deleteTask(id);
+		
+		Response response = null;
+		
+		if (result) {
+			response = Response.status(Response.Status.OK).entity("A tarefa foi 			deletada com sucesso").build();
+		} else {
+			response = 				Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("				 				Ocorreu algum erro na hora de deletar a tarefa").build();
+		}
+		
 		return response;
 		
 	}
