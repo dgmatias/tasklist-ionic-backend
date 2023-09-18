@@ -6,13 +6,12 @@ import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.Response.Status;
 import model.Task;
 import service.Service;
 
@@ -77,7 +76,7 @@ public class TaskResource {
 	}
 	
 	
-	
+	// http://localhost:8080/tasklist/rest/tasks/task/id
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -99,5 +98,26 @@ public class TaskResource {
 		
 	}
 	
+	// http://localhost:8080/tasklist/rest/tasks/task/
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("task")
+	public Response putTask(Task task) {
+		
+		Service service = new Service();
+		boolean result = service.alterTask(task);
+		
+		Response response = null;
+		
+		if(result) {
+			response = Response.status(Response.Status.OK).entity("A tarefa foi 			alterada com sucesso").build();
+		} else {
+			response = 			Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Ocor							  			reu algum erro na hora de alterar a tarefa").build();
+		}
+		
+		return response;
+		
+	}
 	
 }
